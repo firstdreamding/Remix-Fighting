@@ -1,10 +1,11 @@
 package main;
+import entity.Player;
 
 import javax.swing.JFrame;
 
 public class Loop extends JFrame implements Runnable{
 
-    /**
+    /*
      * 
      */
 	
@@ -22,7 +23,13 @@ public class Loop extends JFrame implements Runnable{
     }
 
     @Override
+    
+    /*
+     * This is the run class that loops over and over. The thread buffers
+     * the program so that it runs 60 frames every 1 second
+     */
     public void run() {
+    Player player = new Player();
         while(Var.running){
         	try {
 				Thread.sleep(1000/60);
@@ -30,8 +37,9 @@ public class Loop extends JFrame implements Runnable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-        	System.out.println(i);
-        	i++;
+        	
+        	player.render();
+        	
         }
 
     }
