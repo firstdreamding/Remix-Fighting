@@ -1,5 +1,6 @@
 package main;
 import entity.Player;
+import main.Hud;
 
 import javax.swing.JFrame;
 
@@ -17,9 +18,6 @@ public class Loop extends JFrame implements Runnable{
         setName(name);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
     }
 
     @Override
@@ -30,6 +28,7 @@ public class Loop extends JFrame implements Runnable{
      */
     public void run() {
     Player player = new Player();
+    Hud hud = new Hud();
         while(Var.running){
         	try {
 				Thread.sleep(1000/60);
@@ -39,7 +38,7 @@ public class Loop extends JFrame implements Runnable{
 			}
         	
         	player.render();
-        	
+        	hud.render();
         }
 
     }
